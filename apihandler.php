@@ -1,23 +1,26 @@
 <?php
-/**
-	* ApiHandler class
-	*
-	* @package Habari
-	*
-	* @version $Id$
-	* @copyright 2008
- */
-
-class ApiHandler extends ActionHandler
+class ApiHandler extends RestHandler
 {
 
-	/**
-	* Respond to requests for podcast feeds
-	*
-	*/
-	public function act_base()
+	public function act_post()
 	{
-		print_r('This is the API. Put something here.');
+		$id = Controller::get_var( 'id' );
+
+		$post = Post::get( array( 'id' => $id ) );
+		$data = $this->_convert_post( $post );
+
+		$response = new ApiResponse( 'get_post', $data );
+
+		$response->out();
+	}
+
+	private function _convert_post( Post $post ) {
+		$data = $post->to_array();
+
+		$info = $post->info->getArrayCopy();
+		$data['info'] = $info;
+
+		return $data;
 	}
 
 }
