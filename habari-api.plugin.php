@@ -7,7 +7,7 @@ if ( !defined( 'HABARI_PATH' ) ) {
 require_once( 'apihandler.php' );
 require_once( 'apiresponse.php' );
 
-class HabariApi extends Plugin
+class HabariApi extends Habari\Plugin
 {
 
 	/**

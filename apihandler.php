@@ -1,5 +1,6 @@
 <?php
-class ApiHandler extends RestHandler
+
+class ApiHandler extends Habari\RestHandler
 {
 
 	public function act_post()

@@ -1,5 +1,5 @@
 <?php
-class ApiResponse extends RestResponse
+class ApiResponse extends Habari\RestResponse
 {
 	/**
 	 * Create a new ApiResponse
