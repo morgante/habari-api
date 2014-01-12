@@ -1,5 +1,7 @@
 <?php
 
+namespace Habari;
+
 if ( !defined( 'HABARI_PATH' ) ) {
 	die( 'No direct access' );
 }
@@ -7,7 +9,7 @@ if ( !defined( 'HABARI_PATH' ) ) {
 require_once( 'apihandler.php' );
 require_once( 'apiresponse.php' );
 
-class HabariApi extends Habari\Plugin
+class HabariApi extends Plugin
 {
 
 	/**
