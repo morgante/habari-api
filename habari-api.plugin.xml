@@ -5,7 +5,7 @@
 	
 	<author url="http://morgante.net/">Morgante Pell</author>
 	
-	<version>0.1</version>
+	<version>0.2</version>
 	<url>http://lab.morgante.net/habari-api</url>
 	<description><![CDATA[This plugin exposes a JSON API for Habari.]]></description>
 
