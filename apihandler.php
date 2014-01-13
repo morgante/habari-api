@@ -8,20 +8,11 @@ class ApiHandler extends RestHandler
 		$id = Controller::get_var( 'id' );
 
 		$post = Post::get( array( 'id' => $id ) );
-		$data = $this->_convert_post( $post );
+		$data = HabariApi::convert( $post );
 
 		$response = new ApiResponse( 'get_post', $data );
 
 		$response->out();
-	}
-
-	private function _convert_post( Post $post ) {
-		$data = $post->to_array();
-
-		$info = $post->info->getArrayCopy();
-		$data['info'] = $info;
-
-		return $data;
 	}
 
 }

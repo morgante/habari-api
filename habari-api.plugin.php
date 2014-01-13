@@ -46,7 +46,7 @@ class HabariApi extends Plugin
         Plugins::act( 'queue_send', 'post', $data );
     }
 
-    public static function encode( $data )
+    public static function convert( $data )
     {
         switch (get_class( $data ) )
         {
@@ -56,7 +56,15 @@ class HabariApi extends Plugin
                 break;
         }
 
+        return $data;
+    }
+
+    private static function encode( $data )
+    {
+        $data = self::convert( $data );
+
         return json_encode( $data );
+
     }
 
     private static function convert_post( Post $post ) {
