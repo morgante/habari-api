@@ -35,7 +35,7 @@ class HabariApi extends Plugin
     public function alias()
     {
         return array(
-            'post_save' => array('action_post_update_after')
+            'post_save' => array('action_post_update_after', 'action_post_insert_after')
         );
     }
 
