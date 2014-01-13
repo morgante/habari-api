@@ -30,6 +30,44 @@ class HabariApi extends Plugin
             return $rules;
     }
 
+    /**
+     * Register our hooks
+     */
+    public function alias()
+    {
+        return array(
+            'post_save' => array('action_post_update_after')
+        );
+    }
+
+    public function post_save( $post )
+    {
+        $data = self::encode( $post );
+
+        Plugins::act( 'queue_send', 'post', $data );
+    }
+
+    public static function encode( $data )
+    {
+        switch (get_class( $data ) )
+        {
+            case 'Habari\Post':
+                $data = self::convert_post( $data );
+                break;
+        }
+
+        return json_encode( $data );
+    }
+
+    private static function convert_post( Post $post ) {
+        $data = $post->to_array();
+
+        $info = $post->info->getArrayCopy();
+        $data['info'] = $info;
+
+        return $data;
+    }
+
 }
 
 ?>
