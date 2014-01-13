@@ -50,6 +50,7 @@ class HabariApi extends Plugin
     {
         switch (get_class( $data ) )
         {
+            case 'Post':
             case 'Habari\Post':
                 $data = self::convert_post( $data );
                 break;
