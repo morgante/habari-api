@@ -1,5 +1,4 @@
 <?php
-namespace Habari;
 
 class ApiHandler extends RestHandler
 {
