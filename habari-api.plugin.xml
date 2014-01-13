@@ -10,4 +10,8 @@
 	<description><![CDATA[This plugin exposes a JSON API for Habari.]]></description>
 
 	<copyright>2013</copyright>
+
+	<recommends>
+		<feature url="http://wiki.habariproject.org/en/feature/queue">queue</feature>
+	</recommends>
 </pluggable>

@@ -1,5 +1,4 @@
 <?php
-
 namespace Habari;
 
 if ( !defined( 'HABARI_PATH' ) ) {
